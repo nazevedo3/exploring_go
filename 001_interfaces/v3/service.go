@@ -37,3 +37,13 @@ func (ps PersonService) Get(i int) (Person, error) {
 func (ps PersonService) Put(i int, p Person) {
 	ps.a.Post(i, p)
 }
+
+//Put stores info into a database through the accessor interface.
+func Put(a Accessor, i int, p Person) {
+	a.Post(i, p)
+}
+
+//Retrieves pulls info from a database through the accessor interface.
+func Retrieve(a Accessor, i int) Person {
+	return a.Get(i)
+}
