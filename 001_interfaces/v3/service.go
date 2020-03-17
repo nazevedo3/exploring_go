@@ -2,12 +2,13 @@ package architecture
 
 import "fmt"
 
-//Person struct
+// Person is how the architecture stores a person
 type Person struct {
 	First string
 }
 
-//Accessor allows you to get or post to either database type (Mongo or Postress)
+// Accessor allows you to get or post to either database type (Mongo or Postress)
+// When retriving a person, if they do not exist, return the zero value
 type Accessor interface {
 	Get(i int) Person
 	Post(i int, p Person)
